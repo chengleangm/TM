@@ -2,20 +2,30 @@
   "name": "tm-cambodia",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint src tests scripts *.mjs *.ts",
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "test:smoke": "node scripts/smoke.mjs",
+    "test:platform": "node scripts/platform-smoke.mjs",
+    "test:responsive": "node scripts/responsive-qa.mjs",
+    "test:payment-security": "node scripts/payment-security-qa.mjs"
   },
   "dependencies": {
+    "lucide-react": "^1.48.0",
     "next": "16.3.6",
+    "qrcode": "^1.5.4",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
